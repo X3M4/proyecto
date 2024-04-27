@@ -52,12 +52,5 @@
             <field name="view_mode">tree,form</field>
         </record>
 
-        <!-- Elementos de menú -->
-        <!-- Entrada principal de menú -->
-        <menuitem id="menu_cuaderno_campo" name="Cuaderno de Campo"/>
-
-        <!-- Entradas secundarias de menú -->
-        <menuitem id="menu_cc_fitosanitario_list" name="Lista de Fitosanitarios" action="action_cc_fitosanitario" parent="menu_cuaderno_campo"/>
-
     </data>
 </odoo>

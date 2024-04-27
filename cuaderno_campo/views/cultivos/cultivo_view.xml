@@ -90,13 +90,6 @@
             <field name="view_mode">tree,form</field>
         </record>
 
-        <!-- Elementos de menú -->
-        <!-- Entrada principal de menú -->
-        <menuitem id="menu_cuaderno_campo" name="Cuaderno de Campo"/>
-
-        <!-- Entradas secundarias de menú -->
-        <menuitem id="menu_cc_cultivo_list" name="Lista de Cultivos" action="action_cc_cultivos" parent="menu_cuaderno_campo"/> 
-
 
     </data>
 </odoo>

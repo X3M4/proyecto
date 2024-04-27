@@ -72,14 +72,7 @@
             <field name="name">Parcelas</field>
             <field name="res_model">cc.parcelas</field>
             <field name="view_mode">tree,form</field>
-        </record>
-        
-        <!-- Elementos de menú -->
-        <!-- Entrada principal de menú -->
-        <menuitem id="menu_cuaderno_campo" name="Cuaderno de Campo"/>
-
-        <!-- Entradas secundarias de menú -->
-        <menuitem id="menu_cc_aplicadores_list" name="Lista de Parcelas" action="action_cc_parcelas" parent="menu_cuaderno_campo"/> 
+        </record> 
 
     </data>
 </odoo>

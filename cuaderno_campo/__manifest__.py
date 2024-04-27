@@ -30,6 +30,8 @@ Long description of module's purpose
         'views/parcelas/parcelas_view.xml',
         'views/variedades/variedades_view.xml',
         'views/cultivos/cultivo_view.xml',
+        'views/plagas/plagas.view.xml',
+        'views/menus/cuaderno_campo_menus.xml',
         'views/templates.xml',
         
     ],

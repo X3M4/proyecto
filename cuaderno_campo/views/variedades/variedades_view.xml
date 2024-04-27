@@ -51,13 +51,6 @@
             <field name="res_model">cc.variedades</field>
             <field name="view_mode">tree,form</field>
         </record>
-
-        <!-- Elementos de menú -->
-        <!-- Entrada principal de menú -->
-        <menuitem id="menu_cuaderno_campo" name="Cuaderno de Campo"/>
-
-        <!-- Entradas secundarias de menú -->
-        <menuitem id="menu_cc_variedades_list" name="Lista de Variedades" action="action_cc_variedades" parent="menu_cuaderno_campo"/> 
         
 
     </data>

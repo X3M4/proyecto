@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <menuitem id="menu_cuaderno_campo" name="Cuaderno de Campo" />
+
+    <menuitem id="gestión_explotación" name="Gestión de explotación"
+        parent="cuaderno_campo.menu_cuaderno_campo" sequence="10" />
+
+    <menuitem id="cc_parcela_menu" name="Parcelas" action="cuaderno_campo.action_cc_parcelas"
+        parent="cuaderno_campo.gestión_explotación" sequence="10" />
+
+    <menuitem id="cc_cultivos_menu" name="Cultivos" action="cuaderno_campo.action_cc_cultivos"
+        parent="cuaderno_campo.gestión_explotación" sequence="20" />
+
+    <menuitem id="cc_maquinaria_menu" name="Maquinaria" action="cuaderno_campo.action_cc_maquinaria"
+        parent="cuaderno_campo.gestión_explotación" sequence="30" />
+
+    <menuitem id="cc_aplicador_menu" name="Aplicadores"
+        action="cuaderno_campo.action_cc_aplicadores" parent="cuaderno_campo.gestión_explotación"
+        sequence="40" />
+
+    <menuitem id="cc_variedades_menu" name="Variedades" action="cuaderno_campo.action_cc_variedades"
+        parent="cuaderno_campo.gestión_explotación" sequence="40" />
+
+    <menuitem id="cc_plagas_menu" name="Plagas" action="cuaderno_campo.cc_plagas_action"
+        parent="cuaderno_campo.gestión_explotación" sequence="40" />
+
+
+    <menuitem id="cc_fitos_menu" name="Fitosanitarios" action="cuaderno_campo.action_cc_fitosanitario"
+        parent="cuaderno_campo.gestión_explotación" sequence="40" />
+
+</odoo>

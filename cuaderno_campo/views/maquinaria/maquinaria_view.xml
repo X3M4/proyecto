@@ -47,13 +47,7 @@
         <field name="res_model">cc.maquinaria</field>
         <field name="view_mode">tree,form</field>
       </record>
-  
-      <!-- Elementos de menú -->
-      <!-- Entrada principal de menú -->
-      <menuitem id="menu_cuaderno_campo" name="Cuaderno de Campo"/>
-  
-      <!-- Entradas secundarias de menú -->
-      <menuitem id="menu_cc_maquinaria_list" name="Lista de Maquinaria" action="action_cc_maquinaria" parent="menu_cuaderno_campo"/>
+
     </data>
   </odoo>
   
