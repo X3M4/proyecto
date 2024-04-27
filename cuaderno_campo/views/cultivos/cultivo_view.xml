@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+
+        <!-- Vista de formulario del modelo cc.cultivos-->
+        <record id="view_cc_cultivos" model="ir.ui.view">
+            <field name="name">cc.cultivos.form</field>
+            <field name="model">cc.cultivos</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="parcela">
+                                <tree>
+                                    <field name="name"/>
+                                    <field name="codigo_provincia"/>
+                                    <field name="codigo_municipio"/>
+                                    <field name="agregado"/>
+                                    <field name="zona"/>
+                                    <field name="poligono"/>
+                                    <field name="recinto"/>
+                                    <field name="uso"/>
+                                    <field name="superficie"/>
+                                    <field name="coordenadas"/>
+                                    <field name="riego"/>
+                                    <field name="estructura"/>
+                                    <field name="asesoramiento"/>
+                                </tree>
+                            </field>
+                            <field name="variedad">
+                                <tree>
+                                    <field name="name"/>
+                                </tree>
+                            </field>
+                            <field name="superficie_cultivada"/>
+                            <field name="maquinaria">
+                                <tree>
+                                    <field name="name"/>
+                                    <field name="marca"/>
+                                    <field name="modelo"/>
+                                    <field name="tipo"/>
+                                    <field name="estado"/>
+                                    <field name="fecha_adquisicion"/>
+                                    <field name="fecha_inspeccion"/>
+                                    <field name="cultivo"/>
+                                    <field name="cultivo">
+                                        <tree>
+                                            <field name="name"/>
+                                            <field name="parcela"/>
+                                            <field name="variedad"/>
+                                            <field name="superficie_cultivada"/>
+                                            <field name="fecha_siembra"/>
+                                            <field name="fecha_cosecha"/>
+                                            <field name="cosecha_estimada"/>
+                                        </tree>
+                                    </field>
+                                </tree>
+                            </field>
+                            <field name="fecha_siembra"/>
+                            <field name="fecha_cosecha"/>
+                            <field name="cosecha_estimada"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Vista de árbol del modelo cc.cultivos-->
+        <record id="cc_cultivos_tree" model="ir.ui.view">
+            <field name="name">cc.cultivos.tree</field>
+            <field name="model">cc.cultivos</field>
+            <field name="arch" type="xml">
+                <tree string="Cultivos">
+                    <field name="name"/>
+                    <field name="parcela"/>
+                    <field name="variedad"/>
+                    <field name="superficie_cultivada"/>
+                    <field name="fecha_siembra"/>
+                    <field name="fecha_cosecha"/>
+                    <field name="cosecha_estimada"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Acciones de la vista de árbol del modelo cc.cultivos-->
+        <record id="action_cc_cultivos" model="ir.actions.act_window">
+            <field name="name">Cultivos</field>
+            <field name="res_model">cc.cultivos</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Elementos de menú -->
+        <!-- Entrada principal de menú -->
+        <menuitem id="menu_cuaderno_campo" name="Cuaderno de Campo"/>
+
+        <!-- Entradas secundarias de menú -->
+        <menuitem id="menu_cc_cultivo_list" name="Lista de Cultivos" action="action_cc_cultivos" parent="menu_cuaderno_campo"/> 
+
+
+    </data>
+</odoo>

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Vista de formulario del modelo cc_municipios -->
+      <record id="view_cc_municipios_form" model="ir.ui.view">
+        <field name="name">cc.municipios.form</field>
+        <field name="model">cc.municipios</field>
+        <field name="arch" type="xml">
+          <form string="">
+            <sheet>
+              <group>
+                <field name="provincia"/>
+                <field name="municipios"/>
+                <field name="name"/>
+              </group>
+            </sheet>
+          </form>
+        </field>
+      </record>
+
+        <!-- Vista de árbol para el modelo cc_municipios-->
+        <record id="cc_municipios_tree_view" model="ir.ui.view">
+            <field name="name">cc.municipios.tree</field>
+            <field name="model">cc.municipios</field>
+            <field name="arch" type="xml">
+                <tree string="Municipios">
+                    <field name="provincia"/>
+                    <field name="municipios"/>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <!--<record id="municipios_search_view" model="ir.ui.view">
+            <field name="name">cc.municipios.search</field>
+            <field name="model">cc.municipios</field>
+            <field name="arch" type="xml">
+                <search string="ModelTitle">
+                    <group expand="1" string="Group By">
+                        <filter string="Example Field" name="example_field" domain="[]"
+                                context="{'group_by':'example_field'}"/>
+                    </group>
+                </search>
+            </field>
+        </record> -->
+
+        <!-- Acciones de ventana para el modelo cc.municipios -->
+      <record id="action_cc_municipios" model="ir.actions.act_window">
+        <field name="name">Municipios</field>
+        <field name="res_model">cc.municipios</field>
+        <field name="view_mode">tree,form</field>
+      </record>
+
+        <!-- Elementos de menú -->
+      <!-- Entrada principal de menú -->
+      <menuitem id="menu_cuaderno_campo" name="Cuaderno de Campo"/>
+
+        <!-- Entradas secundarias de menú -->
+      <menuitem id="menu_cc_municipios_list" name="Lista de Municipios" action="action_cc_municipios" parent="menu_cuaderno_campo"/>
+
+
+    </data>
+</odoo>

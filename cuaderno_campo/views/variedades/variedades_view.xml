@@ -1,0 +1,65 @@
+<odoo>
+    <data>
+
+        <!-- Vista de árbol del modelo cc.variedades-->
+        <record id="cc_variedades_view_tree" model="ir.ui.view">
+            <field name="name">cc.variedades.view.tree</field>
+            <field name="model">cc.variedades</field>
+            <field name="arch" type="xml">
+                <tree string="Variedades">
+                    <field name="especie"></field>
+                    <field name="name"></field>
+                    <field name="propiedad"></field>
+                    <field name="proveedor"></field>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Vista de formulario del modelo cc.variedades-->
+        <record id="cc_variedades_view_form" model="ir.ui.view">
+            <field name="name">cc.variedades.view.form</field>
+            <field name="model">cc.variedades</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <field name="especie"></field>
+                            <field name="name"></field>
+                            <field name="propiedad"></field>
+                            <field name="proveedor"></field>
+                            <field name="cultivo">
+                                <tree>
+                                    <field name="name"/>
+                                    <field name="parcela"/>
+                                    <field name="variedad"/>
+                                    <field name="superficie_cultivada"/>
+                                    <field name="fecha_cosecha"/>
+                                    <field name="fecha_siembra"/>
+                                    <field name="fecha_cosecha"/>
+                                    <field name="cosecha_estimada"/>
+                                </tree>
+                            </field>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Acciones de ventana para el modelo cc.variedades-->
+        <record id="action_cc_variedades" model="ir.actions.act_window">
+            <field name="name">Variedades</field>
+            <field name="res_model">cc.variedades</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Elementos de menú -->
+        <!-- Entrada principal de menú -->
+        <menuitem id="menu_cuaderno_campo" name="Cuaderno de Campo"/>
+
+        <!-- Entradas secundarias de menú -->
+        <menuitem id="menu_cc_variedades_list" name="Lista de Variedades" action="action_cc_variedades" parent="menu_cuaderno_campo"/> 
+        
+
+    </data>
+
+</odoo>

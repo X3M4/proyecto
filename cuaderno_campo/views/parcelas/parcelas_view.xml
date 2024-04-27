@@ -1,0 +1,85 @@
+<odoo>
+    <data>
+        <!-- Vista de árbol del modelo cc.parcelas-->
+        <record id="cc_parcelas_tree" model="ir.ui.view">
+            <field name="name">cc.parcelas.tree</field>
+            <field name="model">cc.parcelas</field>
+            <field name="arch" type="xml">
+                <tree string="Parcelas">
+                    <field name="codigo_provincia"/>
+                    <field name="codigo_municipio"/>
+                    <field name="name"/>
+                    <field name="finca" />
+                    <field name="ocupacion"></field>
+                    <field name="titular"></field>
+                    <field name="poligono"/>
+                    <field name="parcela"/>
+                    <field name="recinto"/>
+                    <field name="uso"/>
+                    <field name="superficie"/>
+                    <field name="coordenadas"/>
+                    <field name="riego"/>
+                    <field name="estructura"/>
+                    <field name="asesoramiento"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Vista de formulario del modelo cc.parcelas-->
+        <record id="view_cc_parcelas" model="ir.ui.view">
+            <field name="name">cc.parcelas.form</field>
+            <field name="model">cc.parcelas</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <field name="codigo_provincia"/>
+                            <field name="codigo_municipio"/>
+                            <field name="name"/>
+                            <field name="finca"/>
+                            <field name="agregado"/>
+                            <field name="zona"/>
+                            <field name="poligono"/>
+                            <field name="parcela"/>
+                            <field name="recinto"/>
+                            <field name="uso"/>
+                            <field name="superficie"/>
+                            <field name="coordenadas"/>
+                            <field name="ocupacion"/>
+                            <field name="riego"/>
+                            <field name="estructura"/>
+                            <field name="asesoramiento"/>
+                            <field name="cultivo">
+                                <tree>
+                                    <field name="name"/>
+                                    <field name="parcela"/>
+                                    <field name="variedad"/>
+                                    <field name="superficie_cultivada"/>
+                                    <field name="fecha_cosecha"/>
+                                    <field name="fecha_siembra"/>
+                                    <field name="fecha_cosecha"/>
+                                    <field name="cosecha_estimada"/>
+                                </tree>
+                            </field>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Acciones de ventana para el modelo cc.parcelas-->
+        <record id="action_cc_parcelas" model="ir.actions.act_window">
+            <field name="name">Parcelas</field>
+            <field name="res_model">cc.parcelas</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        
+        <!-- Elementos de menú -->
+        <!-- Entrada principal de menú -->
+        <menuitem id="menu_cuaderno_campo" name="Cuaderno de Campo"/>
+
+        <!-- Entradas secundarias de menú -->
+        <menuitem id="menu_cc_aplicadores_list" name="Lista de Parcelas" action="action_cc_parcelas" parent="menu_cuaderno_campo"/> 
+
+    </data>
+</odoo>

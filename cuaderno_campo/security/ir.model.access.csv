@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_cc_maquinaria,cc.maquinaria,model_cc_maquinaria,base.group_user,1,1,1,1
+access_cc_fitosanitario, cc.fitosanitario,model_cc_fitosanitario,base.group_user,1,1,1,1
+access_cc_aplicadores,cc.aplicadores,model_cc_aplicadores,base.group_user,1,1,1,1
+access_cc_parcelas,cc.parcelas,model_cc_parcelas,base.group_user,1,1,1,1
+acess_cc_variedades,cc.variedades,model_cc_variedades,base.group_user,1,1,1,1
+access_cc_cultivos,cc.cultivos,model_cc_cultivos,base.group_user,1,1,1,1

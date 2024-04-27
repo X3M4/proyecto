@@ -1,0 +1,63 @@
+<odoo>
+    <data>
+
+        <!-- Vista de árbol del modelo cc_fitosanitario-->
+        <record id="cc_fitosanitario_view_tree" model="ir.ui.view">
+            <field name="name">cc.fitosanitario.tree</field>
+            <field name="model">cc.fitosanitario</field>
+            <field name="arch" type="xml">
+                <tree string="Fitosanitarios">
+                    <field name="num_registro"/>
+                    <field name="name"/>
+                    <field name="formulado"/>
+                    <field name="estado"/>
+                    <field name="fecha_caducidad"/>
+                    <field name="fecha_renovacion"/>
+                    <field name="fecha_limite_venta"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Vista de árbol del modelo cc_fitosanitario-->
+        <record id="cc_fitosanitario_view_form" model="ir.ui.view">
+            <field name="name">cc.fitosanitario.form</field>
+            <field name="model">cc.fitosanitario</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <field name="num_registro"/>
+                            <field name="name"/>
+                            <field name="titular"/>
+                            <field name="fabricante"/>
+                            <field name="fabrica"/>
+                            <field name="formulado"/>
+                            <field name="estado"/>
+                            <field name="fecha_caducidad"/>
+                            <field name="fecha_inscripcion"/>
+                            <field name="fecha_renovacion"/>
+                            <field name="fecha_modificacion"/>
+                            <field name="fecha_limite_venta"/>
+                            <field name="fecha_autorizacion"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Acciones de ventana para el modelo cc_maquinaria -->
+        <record id="action_cc_fitosanitario" model="ir.actions.act_window">
+            <field name="name">Fitosanitarios</field>
+            <field name="res_model">cc.fitosanitario</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Elementos de menú -->
+        <!-- Entrada principal de menú -->
+        <menuitem id="menu_cuaderno_campo" name="Cuaderno de Campo"/>
+
+        <!-- Entradas secundarias de menú -->
+        <menuitem id="menu_cc_fitosanitario_list" name="Lista de Fitosanitarios" action="action_cc_fitosanitario" parent="menu_cuaderno_campo"/>
+
+    </data>
+</odoo>

@@ -1,0 +1,53 @@
+<odoo>
+    <data>
+
+        <!-- Vista de árbol del modelo cc_maquinaria-->
+        <record id="cc_aplicadores_tree" model="ir.ui.view">
+            <field name="name">cc.aplicadores.tree</field>
+            <field name="model">cc.aplicadores</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="name"></field>
+                    <field name="numero_inscripcion"></field>
+                    <field name="dni_nif"></field>
+                    <field name="carnet"></field>
+                    <field name="asesor"></field>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Vista de formulario del modelo cc_trabajadores_cualificados -->
+        <record id="view_cc_aplicadores" model="ir.ui.view">
+            <field name="name">cc.aplicadores.form</field>
+            <field name="model">cc.aplicadores</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <field name="name"></field>
+                            <field name="numero_inscripcion"></field>
+                            <field name="dni_nif"></field>
+                            <field name="carnet"></field>
+                            <field name="asesor"></field>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Acciones de ventana para el modelo cc_trabajadores_cualificados -->
+        <record id="action_cc_aplicadores" model="ir.actions.act_window">
+            <field name="name">Aplicadores</field>
+            <field name="res_model">cc.aplicadores</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Elementos de menú -->
+        <!-- Entrada principal de menú -->
+        <menuitem id="menu_cuaderno_campo" name="Cuaderno de Campo"/>
+
+        <!-- Entradas secundarias de menú -->
+        <menuitem id="menu_cc_aplicadores_list" name="Lista de Aplicadores" action="action_cc_aplicadores" parent="menu_cuaderno_campo"/> 
+
+    </data>
+</odoo>

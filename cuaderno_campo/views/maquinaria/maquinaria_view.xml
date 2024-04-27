@@ -1,0 +1,59 @@
+<odoo>
+    <data>
+     
+        <!-- Vista de árbol del modelo cc_maquinaria-->
+        <record id="cc_maquinaria_tree" model="ir.ui.view">
+          <field name="name">cc.maquinaria.tree</field>
+          <field name="model">cc.maquinaria</field>
+          <field name="arch" type="xml">
+            <tree string="">
+              <field name="name"></field>
+              <field name="marca"></field>
+              <field name="modelo"></field>
+              <field name="tipo"></field>
+              <field name="estado"></field>
+              <field name="fecha_adquisicion"></field>
+              <field name="fecha_inspeccion"></field>
+              <field name="resultado"></field>
+            </tree>
+          </field>
+        </record>
+  
+      <!-- Vista de formulario del modelo cc_maquinaria -->
+      <record id="view_cc_maquinaria_form" model="ir.ui.view">
+        <field name="name">cc.maquinaria.form</field>
+        <field name="model">cc.maquinaria</field>
+        <field name="arch" type="xml">
+          <form string="">
+            <sheet>
+              <group>
+                <field name="name"/>
+                <field name="marca"/>
+                <field name="modelo"/>
+                <field name="tipo"/>
+                <field name="estado"/>
+                <field name="fecha_adquisicion"></field>
+                <field name="fecha_inspeccion"/>
+                <field name="resultado"/>
+              </group>
+            </sheet>
+          </form>
+        </field>
+      </record>
+  
+      <!-- Acciones de ventana para el modelo cc_maquinaria -->
+      <record id="action_cc_maquinaria" model="ir.actions.act_window">
+        <field name="name">Maquinaria</field>
+        <field name="res_model">cc.maquinaria</field>
+        <field name="view_mode">tree,form</field>
+      </record>
+  
+      <!-- Elementos de menú -->
+      <!-- Entrada principal de menú -->
+      <menuitem id="menu_cuaderno_campo" name="Cuaderno de Campo"/>
+  
+      <!-- Entradas secundarias de menú -->
+      <menuitem id="menu_cc_maquinaria_list" name="Lista de Maquinaria" action="action_cc_maquinaria" parent="menu_cuaderno_campo"/>
+    </data>
+  </odoo>
+  
