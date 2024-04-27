@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- primary|extension Inherited .:Form:. view for "product.template" -->
+    <record id="product_template_view_form" model="ir.ui.view">
+        <field name="name">product.template.view.form</field>
+        <field name="inherit_id" ref="product.product_template_form_view" />
+        <field name="model">product.template</field>
+        <field name="arch" type="xml">
+            <div name="options" position="inside">
+                <span class="d-inline-block">
+                    <field name="es_producto"/>
+                    <label for="es_producto"/>
+                </span>
+            </div>
+            <notebook position="inside">
+                <page name="producto" string="Registro de producto" invisible="es_producto == False">
+                    <group>
+                        <field name="fitosanitario_id" />
+                        <field name="tipo" />
+                        <field name="estado" decoration-success="estado == '1'" decoration-danger="estado == '2'"/>
+                        <field name="num_registro" />
+                        <field name="formulado" />
+                        <field name="fecha_caducidad" />
+                    </group>
+                </page>
+            </notebook>
+        </field>
+    </record>
+
+</odoo>
