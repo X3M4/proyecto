@@ -18,7 +18,7 @@
     'version': '0.1',
     
     # any module necessary for this one to work correctly
-    'depends': ['base', 'cuaderno_campo', 'product_template'],
+    'depends': ['cuaderno_campo', 'product_template'],
 
     # always loaded
     'data': [
