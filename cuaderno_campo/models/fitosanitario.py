@@ -15,6 +15,20 @@ class cc_fitosanitario(models.Model):
         required=True,
         help = 'Nombre comercial'
     )
+    
+    tipo = fields.Selection(
+        string='Tipo',
+        selection=[
+            ('1', 'Herbicida'),
+            ('2', 'Insecticida'),
+            ('3', 'Fungicida'),
+            ('4', 'Acaricida'),
+            ('5', 'Nematicida'),
+            ('6', 'Bactericida'),
+            ('7', 'Otros'),
+        ],
+        default='7',
+    )
        
     titular = fields.Char(
         string='titular',
@@ -44,7 +58,6 @@ class cc_fitosanitario(models.Model):
             ('1', 'Vigente'), 
             ('2', 'Cancelado')
         ],
-        required=True
     )
     
     fecha_caducidad = fields.Date(

@@ -3,6 +3,8 @@
     'name': "cuaderno_campo_gastos",
 
     'summary': "Gestión de gastos imputados al cuaderno de campo",
+    
+    "version": "17.0.1.0.0",
 
     'description': """
         Módulo para la gestión de gastos relativa al cuaderno de campo de una explotación agrícola
@@ -18,7 +20,7 @@
     'version': '0.1',
     
     # any module necessary for this one to work correctly
-    'depends': ['cuaderno_campo', 'product_template'],
+    'depends': ['base','cuaderno_campo',],
 
     # always loaded
     'data': [

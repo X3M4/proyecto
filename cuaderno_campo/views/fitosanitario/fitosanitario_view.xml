@@ -9,6 +9,7 @@
                 <tree string="Fitosanitarios">
                     <field name="num_registro"/>
                     <field name="name"/>
+                    <field name="tipo" />
                     <field name="formulado"/>
                     <field name="estado"/>
                     <field name="fecha_caducidad"/>
@@ -28,6 +29,7 @@
                         <group>
                             <field name="num_registro"/>
                             <field name="name"/>
+                            <field name="tipo" />
                             <field name="titular"/>
                             <field name="fabricante"/>
                             <field name="fabrica"/>
