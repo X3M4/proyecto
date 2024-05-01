@@ -7,7 +7,7 @@
             <field name="model">cc.aplicadores</field>
             <field name="arch" type="xml">
                 <tree string="">
-                    <field name="name"></field>
+                    <field name="name_id"></field>
                     <field name="numero_inscripcion"></field>
                     <field name="dni_nif"></field>
                     <field name="carnet"></field>
@@ -24,7 +24,7 @@
                 <form string="">
                     <sheet>
                         <group>
-                            <field name="name"></field>
+                            <field name="name_id"></field>
                             <field name="numero_inscripcion"></field>
                             <field name="dni_nif"></field>
                             <field name="carnet"></field>

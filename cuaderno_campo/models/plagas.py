@@ -39,6 +39,14 @@ class Plaga (models.Model):
         compute = '_compute_num_especies',
     )
     
+    
+    tratamiento_ids = fields.One2many(
+        string='Tratamiento',
+        comodel_name='cc.tratamientos',
+        inverse_name='plaga_id',
+    )
+    
+        
     #Campos calculados
     def _compute_num_especies(self):
         for record in self:

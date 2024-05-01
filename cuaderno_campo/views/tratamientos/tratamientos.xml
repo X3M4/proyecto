@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+
+    <record id="cc_tratamientos_form_view" model="ir.ui.view">
+        <field name="name">cc.tratamientos.form</field>
+        <field name="model">cc.tratamientos</field>
+        <field name="arch" type="xml">
+            <form string="Tratamiento">
+                <sheet>
+                    <group>
+                        <field name="name" />
+                        <field name="plaga_id"/>
+                        <field name="tipo"/>
+                        <field name="cultivos_ids"/>
+                    </group>
+                    <notebook>
+                
+                        <page name="lineas_tratamiento" string="Lineas de tratamiento">
+                            <field name="lineas_tratamiento_ids">
+                                <tree editable="bottom">
+                                    <field name="producto_ids"/>
+                                    <field name="dosis"/>
+                                    <field name="aplicador_ids"/>
+                                    <field name="fecha"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="cc_tratamientos_tree_view" model="ir.ui.view">
+        <field name="name">cc.tratamientos.tree</field>
+        <field name="model">cc.tratamientos</field>
+        <field name="arch" type="xml">
+            <tree string="Tratamientos">
+                <field name="name" />
+                <field name="plaga_id"/>
+                <field name="tipo"/>
+                <field name="cultivos_ids" widget="many2many_tags" />
+                <field name="lineas_tratamiento_ids"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="tratamientos_search_view" model="ir.ui.view">
+        <field name="name">cc.tratamientos.search</field>
+        <field name="model">cc.tratamientos</field>
+        <field name="arch" type="xml">
+            <search string="Tratamientos">
+                <field name="name" />
+                <field name="plaga_id"/>
+                <field name="tipo"/>
+                <field name="cultivos_ids"/>
+                <field name="lineas_tratamiento_ids"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- Acciones de la vista de árbol del modelo cc.tratamientos-->
+    <record id="action_cc_tratamientos" model="ir.actions.act_window">
+        <field name="name">Tratamientos</field>
+        <field name="res_model">cc.tratamientos</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+</odoo>

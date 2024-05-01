@@ -86,12 +86,11 @@ class parcelas(models.Model):
         help='Tipo de ocupación de la parcela según titularidad'
     )
 
-    titular = fields.Char(
-        string='Titular',
-        required=True,
-        help='Nombre del titular de la parcela',
-        size=100,
+    titular_ids = fields.Many2one(
+        string='Titulares',
+        comodel_name='res.partner',
     )
+    
 
     riego = fields.Selection(
         string='Sistema de cultivo (Secano/Regadío)',

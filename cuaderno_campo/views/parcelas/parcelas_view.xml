@@ -11,7 +11,7 @@
                     <field name="name"/>
                     <field name="finca" />
                     <field name="ocupacion"></field>
-                    <field name="titular"></field>
+                    <field name="titular_ids"></field>
                     <field name="poligono"/>
                     <field name="parcela"/>
                     <field name="recinto"/>
@@ -46,6 +46,7 @@
                             <field name="superficie"/>
                             <field name="coordenadas"/>
                             <field name="ocupacion"/>
+                            <field name="titular_ids" />
                             <field name="riego"/>
                             <field name="estructura"/>
                             <field name="asesoramiento"/>
@@ -62,6 +63,7 @@
                                 </tree>
                             </field>
                         </group>
+
                     </sheet>
                 </form>
             </field>

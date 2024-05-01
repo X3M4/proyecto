@@ -26,7 +26,11 @@
         parent="cuaderno_campo.gestión_explotación" sequence="40" />
 
 
-    <menuitem id="cc_fitos_menu" name="Fitosanitarios" action="cuaderno_campo.action_cc_fitosanitario"
-        parent="cuaderno_campo.gestión_explotación" sequence="40" />
+    <menuitem id="cc_fitos_menu" name="Fitosanitarios"
+        action="cuaderno_campo.action_cc_fitosanitario" parent="cuaderno_campo.gestión_explotación"
+        sequence="40" />
+
+    <menuitem id="tratamiento_menu" name="Tratamientos" parent="cuaderno_campo.menu_cuaderno_campo"
+        action="cuaderno_campo.action_cc_tratamientos" />
 
 </odoo>

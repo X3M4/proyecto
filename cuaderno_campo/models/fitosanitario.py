@@ -58,6 +58,7 @@ class cc_fitosanitario(models.Model):
             ('1', 'Vigente'), 
             ('2', 'Cancelado')
         ],
+        default = '2',
     )
     
     fecha_caducidad = fields.Date(

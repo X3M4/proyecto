@@ -51,5 +51,6 @@ class cultivo(models.Model):
         help='Peso de la cosecha estimada en Kg'
     )
 
+    
 
 

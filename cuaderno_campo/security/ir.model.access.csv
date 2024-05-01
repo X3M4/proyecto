@@ -6,3 +6,5 @@ access_cc_parcelas,cc.parcelas,model_cc_parcelas,base.group_user,1,1,1,1
 acess_cc_variedades,cc.variedades,model_cc_variedades,base.group_user,1,1,1,1
 access_cc_cultivos,cc.cultivos,model_cc_cultivos,base.group_user,1,1,1,1
 access_cc_plagas,cc.plagas,model_cc_plagas,base.group_user,1,1,1,1
+access_cc_tratamientos,cc.tratamientos,model_cc_tratamientos,base.group_user,1,1,1,1
+acces_cc_lineas_tratamiento,cc.lineas_tratamiento,model_cc_lineas_tratamiento,base.group_user,1,1,1,1

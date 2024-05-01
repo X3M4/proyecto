@@ -3,12 +3,13 @@ from odoo import models, api, fields
 
 class cc_aplicadores(models.Model):
     _name = 'cc.aplicadores'
+    _rec_name = 'name_id'
     
-    name = fields.Char(
-        string='Nombre y apellidos',
-        required=True,
-        help='Escriba el nombre y apellidos de la persona inscrita en el ROPO'
-        
+     
+    name_id = fields.Many2one(
+        string='Nombre',
+        comodel_name='res.partner',
+        ondelete='restrict',
     )
     
     numero_inscripcion = fields.Char(
@@ -34,4 +35,16 @@ class cc_aplicadores(models.Model):
 
     asesor = fields.Boolean(
         string='Asesor',
+    )
+    
+    tratamiento_id = fields.Many2one(
+        string='Tratamiento',
+        comodel_name='cc.tratamientos',
+        ondelete='restrict',
+    )
+    
+    linea_tratamiento_id = fields.Many2one(
+        string='Linea de Tratamiento',
+        comodel_name='cc.lineas.tratamiento',
+        ondelete='restrict',
     )
