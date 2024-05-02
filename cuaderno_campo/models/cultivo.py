@@ -1,4 +1,5 @@
 from odoo import fields, models, api
+from odoo.exceptions import ValidationError
 
 
 class cultivo(models.Model):
@@ -14,6 +15,13 @@ class cultivo(models.Model):
         comodel_name='cc.parcelas',
         string='Parcela',
         required=False
+    )
+    
+    superficie = fields.Float(
+        string='Superficie SIGPAC (ha)',
+        required=True,
+        help='Superficie completa de la parcela',
+        related='parcela.superficie'
     )
 
     variedad = fields.Many2one(
@@ -51,6 +59,10 @@ class cultivo(models.Model):
         help='Peso de la cosecha estimada en Kg'
     )
 
-    
+    @api.constrains('superficie_cultivada')
+    def _check_superficie_cultivada(self):
+        for record in self:
+            if record.superficie_cultivada > record.superficie:
+                raise ValidationError('La superficie cultivada no puede ser mayor que la superficie de la parcela')
 
 
