@@ -59,7 +59,7 @@ class Plaga (models.Model):
             'name': 'Variedades',
             'res_model': 'cc.variedades',
             'view_mode': 'tree,form',
-            'domain': [('plaga_ids', 'in', self.ids)],
+            'domain': [('id', 'in', self.variedades_id.ids)],
         }
     
     @api.constrains('name')

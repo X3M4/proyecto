@@ -29,14 +29,6 @@ class Tratamientos(models.Model):
         default='7',
     )
     
-    
-    plaga_id = fields.Many2one(
-        string='Plaga',
-        comodel_name='cc.plagas',
-        ondelete='restrict',
-    )
-    
-    
     cultivos_ids = fields.Many2many(
         string='Cultivos',
         comodel_name='cc.cultivos',

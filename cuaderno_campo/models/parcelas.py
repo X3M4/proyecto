@@ -1,7 +1,8 @@
 from odoo import models, api, fields
+from odoo.exceptions import ValidationError
 
 
-class parcelas(models.Model):
+class Parcelas(models.Model):
     _name = 'cc.parcelas'
     
     codigo_provincia = fields.Char(
@@ -68,6 +69,11 @@ class parcelas(models.Model):
         string='Superficie SIGPAC (ha)',
         required=True,
         help='Superficie en hectáreas indicada en el SIGPAC para la parcela'
+    )
+    
+    superficie_libre = fields.Float(
+        string='Superficie libre (ha)',
+        compute='_compute_superficie_libre',
     )
 
     coordenadas = fields.Char(
@@ -136,3 +142,44 @@ class parcelas(models.Model):
         string='Cultivos',
         required=False
     )
+    
+    num_cultivos = fields.Integer(
+        string='Número de cultivos',
+        compute='_compute_num_cultivos',
+    )
+    
+    #Campos calculados
+    def _compute_superficie_libre(self):
+        superficie = 0
+        for record in self:
+            for cultivo in record.cultivo:
+                superficie += cultivo.superficie_cultivada
+            record.superficie_libre = record.superficie - superficie
+            
+    def _compute_num_cultivos(self):
+        for record in self:
+            record.num_cultivos = len(record.cultivo)
+    #Restricciones
+    
+    @api.constrains('superficie')
+    def _check_superficie(self):
+        for record in self:
+            if record.superficie < 0:
+                raise ValueError('La superficie no puede ser negativa')
+    
+    @api.constrains('superficie_libre')
+    def _check_superficie_libre(self):
+        for record in self:
+            if record.superficie_libre < 0:
+                raise ValueError('La superficie libre no puede ser negativa')
+    
+    
+    #Métodos smartbutton
+    def action_view_cultivos(self):
+        return {
+            'type': 'ir.actions.act_window',
+            'name': 'Cultivos',
+            'res_model': 'cc.cultivos',
+            'view_mode': 'tree,form',
+            'domain': [('parcela', '=', self.id)],
+        }

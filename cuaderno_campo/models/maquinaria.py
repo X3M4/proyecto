@@ -1,6 +1,6 @@
 from odoo import models, fields, api
 
-class cc_maquinaria(models.Model):
+class Maquinaria(models.Model):
     _name = 'cc.maquinaria'
 
     name = fields.Char(
@@ -25,7 +25,7 @@ class cc_maquinaria(models.Model):
     tipo = fields.Selection(
         string='Tipo',
         selection=[
-            ('1', 'Máquinas suspendidas o semisusoendidas'),
+            ('1', 'Máquinas suspendidas o semisuspendidas'),
             ('2', 'Máquinas remolcadas'),
             ('3', 'Tractores'),
             ('4', 'Remolques'),
@@ -55,21 +55,7 @@ class cc_maquinaria(models.Model):
             ('2', 'Desfavorable')
         ],
     )
-    '''
-    tratamiento = fields.One2many(
-        comodel_name='cc.tratamiento',
-        inverse_name='maquinaria_1',
-        string='Maquinaria 1',
-        required=False
-    )
 
-    tratamiento_2 = fields.One2many(
-        comodel_name='cc.tratamiento',
-        inverse_name='maquinaria_2',
-        string='Maquinaria 2',
-        required=False
-    )
-    '''
     cultivo = fields.One2many(
         'cc.cultivos',
         'maquinaria',

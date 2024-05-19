@@ -2,7 +2,7 @@ from odoo import fields, models, api
 from odoo.exceptions import ValidationError
 
 
-class cultivo(models.Model):
+class Cultivo(models.Model):
     _name = 'cc.cultivos'
 
     name = fields.Char(
@@ -17,11 +17,11 @@ class cultivo(models.Model):
         required=False
     )
     
-    superficie = fields.Float(
-        string='Superficie SIGPAC (ha)',
+    superficie_disponible = fields.Float(
+        string='Superficie disponible en la parcela',
         required=True,
         help='Superficie completa de la parcela',
-        related='parcela.superficie'
+        related='parcela.superficie_libre'
     )
 
     variedad = fields.Many2one(
@@ -62,7 +62,15 @@ class cultivo(models.Model):
     @api.constrains('superficie_cultivada')
     def _check_superficie_cultivada(self):
         for record in self:
-            if record.superficie_cultivada > record.superficie:
+            if record.superficie_disponible < 0:
                 raise ValidationError('La superficie cultivada no puede ser mayor que la superficie de la parcela')
+    
+    @api.constrains('fecha_siembra', 'fecha_cosecha')
+    def _check_fechas(self):
+        for record in self:
+            if record.fecha_siembra > record.fecha_cosecha:
+                raise ValidationError('La fecha de siembra no puede ser posterior a la fecha de cosecha')
+    
+    
 
 

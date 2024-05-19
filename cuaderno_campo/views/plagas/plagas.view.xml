@@ -20,6 +20,12 @@
         <field name="arch" type="xml">
             <form string="Plagas">
                 <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button class="oe_stat_button" name="action_view_varieties" type="object" icon="fa-search">
+                            <field string="Variedades" name="num_especies" widget="statinfo" />
+                        </button>
+                    </div>
+
                     <group>
                         <field name="name" />
                         <field name="descripcion" />
@@ -45,10 +51,22 @@
         </field>
     </record>
 
+    <!--Vista de gráfico para el modelo cc.plagas-->
+    <record id="cc_plagas_view_graph" model="ir.ui.view">
+        <field name="name">cc.plagas.view.graph</field>
+        <field name="model">cc.plagas</field>
+        <field name="arch" type="xml">
+            <graph string="Plagas" type="bar">
+                <field name="name"/>
+                <field name="tipo"/>
+            </graph>
+        </field>
+    </record>
+
     <record id="cc_plagas_action" model="ir.actions.act_window">
         <field name="name">Plagas</field>
         <field name="res_model">cc.plagas</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">tree,form,graph</field>
     </record>
 
 </odoo>

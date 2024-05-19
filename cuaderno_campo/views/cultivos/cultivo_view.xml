@@ -21,7 +21,8 @@
                                     <field name="poligono"/>
                                     <field name="recinto"/>
                                     <field name="uso"/>
-                                    <field name="superficie"/>
+                                    <field name="superficie_libre"/>
+                                    <field name="superficie" />
                                     <field name="coordenadas"/>
                                     <field name="riego"/>
                                     <field name="estructura"/>
@@ -33,6 +34,7 @@
                                     <field name="name"/>
                                 </tree>
                             </field>
+                            <field name="superficie_disponible" />
                             <field name="superficie_cultivada"/>
                             <field name="maquinaria">
                                 <tree>

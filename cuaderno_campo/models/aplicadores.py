@@ -1,7 +1,7 @@
 from odoo import models, api, fields
 
 
-class cc_aplicadores(models.Model):
+class Aplicadores(models.Model):
     _name = 'cc.aplicadores'
     _rec_name = 'name_id'
     

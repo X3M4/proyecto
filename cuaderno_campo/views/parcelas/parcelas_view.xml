@@ -30,8 +30,13 @@
             <field name="name">cc.parcelas.form</field>
             <field name="model">cc.parcelas</field>
             <field name="arch" type="xml">
-                <form string="">
+                <form string="Parcelas">
                     <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button class="oe_stat_button" name="action_view_cultivos" type="object" icon="fa-leaf">
+                                <field string="Cultivos" name="num_cultivos" widget="statinfo" />
+                            </button>
+                        </div>
                         <group>
                             <field name="codigo_provincia"/>
                             <field name="codigo_municipio"/>
@@ -44,6 +49,7 @@
                             <field name="recinto"/>
                             <field name="uso"/>
                             <field name="superficie"/>
+                            <field name="superficie_libre" />
                             <field name="coordenadas"/>
                             <field name="ocupacion"/>
                             <field name="titular_ids" />

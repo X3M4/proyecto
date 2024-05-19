@@ -1,7 +1,7 @@
 from odoo import models, api, fields
 
     
-class cc_fitosanitario(models.Model):
+class Fitosanitario(models.Model):
     _name = 'cc.fitosanitario'
        
     num_registro = fields.Char(

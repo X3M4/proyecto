@@ -20,8 +20,13 @@
             <field name="name">cc.variedades.view.form</field>
             <field name="model">cc.variedades</field>
             <field name="arch" type="xml">
-                <form string="">
+                <form string="Variedades">
                     <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button class="oe_stat_button" name="action_view_cultivos" type="object" icon="fa-leaf">
+                                <field string="Cultivos" name="num_cultivos" widget="statinfo" />
+                            </button>
+                        </div>
                         <group>
                             <field name="especie"></field>
                             <field name="name"></field>
