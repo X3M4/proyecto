@@ -32,5 +32,8 @@
 
     <menuitem id="tratamiento_menu" name="Tratamientos" parent="cuaderno_campo.menu_cuaderno_campo"
         action="cuaderno_campo.action_cc_tratamientos" />
+    
+    <menuitem id="abonos_menu" name="Abonos" parent="cuaderno_campo.gestión_explotación"
+        action="cuaderno_campo.action_cc_abonos" />
 
 </odoo>

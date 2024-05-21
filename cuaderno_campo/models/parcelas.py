@@ -4,82 +4,97 @@ from odoo.exceptions import ValidationError
 
 class Parcelas(models.Model):
     _name = 'cc.parcelas'
+    _description = 'Parcelas'
+    _inherit = ['mail.thread', 'mail.activity.mixin',]
     
     codigo_provincia = fields.Char(
         string='Código Provincia',
         required=True,
         help='Escriba el código de pronvincia. Ej: 02 para Albacete',
-        size=2
+        size=2,
+        tracking=True,
     )
 
     codigo_municipio = fields.Char(
         string='Código Municipio',
         help='Escriba el código del municipio. Ej: 069 para La Roda',
         required=True,
-        size=3
+        size=3,
+        tracking=True,
     )
 
     name = fields.Char(
         string='Municipio',
         required=True,
-        help='Escriba el nombre del municipio'
+        help='Escriba el nombre del municipio',
+        tracking=True,
     )
     
     finca = fields.Char(
         string='Finca',
         required=False,
-        help='Nombre de la finca (no obligatorio)'
+        help='Nombre de la finca (no obligatorio)',
+        tracking=True,
     )
 
     agregado = fields.Integer(
         string='Agregado',
-        help='Agregado (no obligatorio)'
+        help='Agregado (no obligatorio)',
+        tracking=True,
     )
 
     zona = fields.Integer(
         string='Zona',
-        help='Zona (no obligatorio)'
+        help='Zona (no obligatorio)',
+        tracking=True,
     )
 
     poligono = fields.Integer(
         string='Polígono',
         required=True,
-        help='Nº polígono'
+        help='Nº polígono',
+        tracking=True,
     )
 
     parcela = fields.Integer(
         string='Parcela',
         required=True,
-        help='Nº de parcela'
+        help='Nº de parcela',
+        tracking=True,
     )
 
     recinto = fields.Integer(
         string='Recinto',
         required=True,
-        help='Nº de recinto'
+        help='Nº de recinto',
+        tracking=True,
     )
 
     uso = fields.Char(
         string='Uso SIGPAC',
         required=True,
-        help='Familia de cultivos indicada en el SIGPAC para la parcela indicada'
+        help='Familia de cultivos indicada en el SIGPAC para la parcela indicada',
+        tracking=True,
     )
 
     superficie = fields.Float(
         string='Superficie SIGPAC (ha)',
         required=True,
-        help='Superficie en hectáreas indicada en el SIGPAC para la parcela'
+        help='Superficie en hectáreas indicada en el SIGPAC para la parcela',
+        tracking=True,
     )
     
     superficie_libre = fields.Float(
         string='Superficie libre (ha)',
         compute='_compute_superficie_libre',
+        tracking=True,
     )
 
     coordenadas = fields.Char(
         String = 'Coordenadas',
         required=False,
-        help='Coordenadas de la parcela según datos del SIGPAC')
+        help='Coordenadas de la parcela según datos del SIGPAC',
+        tracking=True,)
 
     ocupacion = fields.Selection(
         string='Ocupación',
@@ -89,12 +104,14 @@ class Parcelas(models.Model):
             ('3', 'Otro')
         ],
         required=True,
-        help='Tipo de ocupación de la parcela según titularidad'
+        help='Tipo de ocupación de la parcela según titularidad',
+        tracking=True,
     )
 
     titular_ids = fields.Many2one(
         string='Titulares',
         comodel_name='res.partner',
+        tracking=True,
     )
     
 
@@ -107,7 +124,8 @@ class Parcelas(models.Model):
             ('4', 'Gravedad'),
         ],
         required=True,
-        help='Sistema de cultivo respecto al sistema de regadío'
+        help='Sistema de cultivo respecto al sistema de regadío',
+        tracking=True,
     )
 
     estructura = fields.Selection(
@@ -119,7 +137,8 @@ class Parcelas(models.Model):
             ('4', 'Invernadero'),
         ],
         required=True,
-        help='Estructura respecto al sistema de cultivo'
+        help='Estructura respecto al sistema de cultivo',
+        tracking=True,
     )
 
     asesoramiento = fields.Selection(
@@ -133,19 +152,22 @@ class Parcelas(models.Model):
             ('6', 'Sin obligación de aplicar GIP')
         ],
         required=True,
-        help='Sistema de asesoramiento en gestión integrada de plagas'
+        help='Sistema de asesoramiento en gestión integrada de plagas',
+        tracking=True,
     )
     
     cultivo = fields.One2many(
         'cc.cultivos',
         'parcela',
         string='Cultivos',
-        required=False
+        required=False,
+        tracking=True,
     )
     
     num_cultivos = fields.Integer(
         string='Número de cultivos',
         compute='_compute_num_cultivos',
+        tracking=True,
     )
     
     #Campos calculados
@@ -172,7 +194,7 @@ class Parcelas(models.Model):
         for record in self:
             if record.superficie_libre < 0:
                 raise ValueError('La superficie libre no puede ser negativa')
-    
+            
     
     #Métodos smartbutton
     def action_view_cultivos(self):

@@ -56,21 +56,14 @@
                             <field name="riego"/>
                             <field name="estructura"/>
                             <field name="asesoramiento"/>
-                            <field name="cultivo">
-                                <tree>
-                                    <field name="name"/>
-                                    <field name="parcela"/>
-                                    <field name="variedad"/>
-                                    <field name="superficie_cultivada"/>
-                                    <field name="fecha_cosecha"/>
-                                    <field name="fecha_siembra"/>
-                                    <field name="fecha_cosecha"/>
-                                    <field name="cosecha_estimada"/>
-                                </tree>
-                            </field>
                         </group>
 
                     </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="activity_ids" widget="mail_activity"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
                 </form>
             </field>
         </record>

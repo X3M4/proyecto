@@ -3,14 +3,17 @@ from odoo import models, fields, api
 class Plaga (models.Model):
     _name = 'cc.plagas'
     _description = 'Plagas'
+    _inherit = ['mail.thread', 'mail.activity.mixin',]
     
     name = fields.Char(
         string='Nombre',
         required=True,
+        tracking=True,
     )
     
     descripcion = fields.Text(
         string='Descripción',
+        tracking=True,
     )
     
     tipo = fields.Selection(
@@ -21,22 +24,26 @@ class Plaga (models.Model):
             ('bacteria', 'Bacteria'),
             ('virus', 'Virus'),
             ('otro', 'Otro'),
-        ]
+        ],
+        tracking=True,
     )
     
     sintomas = fields.Text(
         string='Síntomas',
+        tracking=True,
     )
     
     variedades_id = fields.Many2many(
         string='Variedad',
         comodel_name='cc.variedades',
+        tracking=True,
     )
     
     
     num_especies = fields.Integer(
         string='Número de especies',
         compute = '_compute_num_especies',
+        tracking=True,
     )
     
     
@@ -44,6 +51,7 @@ class Plaga (models.Model):
         string='Tratamiento',
         comodel_name='cc.tratamientos',
         inverse_name='plaga_id',
+        tracking=True,
     )
     
         

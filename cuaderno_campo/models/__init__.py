@@ -9,3 +9,4 @@ from . import parcelas
 from . import variedades
 from . import plagas
 from . import tratamientos
+from . import abonos

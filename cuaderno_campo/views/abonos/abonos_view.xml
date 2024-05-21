@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="cc_abonos_view_tree" model="ir.ui.view">
+        <field name="name">cc.abonos.view.tree</field>
+        <field name="model">cc.abonos</field>
+        <field name="arch" type="xml">
+            <tree string="Abonos">
+                <field name="name" />
+                <field name="origen" />
+                <field name="tipo" />
+                <field name="fabricante" />
+                <field name="nitrogeno" />
+                <field name="fosforo" />
+                <field name="potasio" />
+                <field name="calcio" />
+                <field name="magnesio" />
+                <field name="azufre" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="cc_abonos_view_form" model="ir.ui.view">
+        <field name="name">cc.abonos.view.form</field>
+        <field name="model">cc.abonos</field>
+        <field name="arch" type="xml">
+            <form string="Abonos">
+                <sheet>
+                    <group>
+                        <field name="name" />
+                        <field name="origen" />
+                        <field name="tipo" />
+                        <field name="nitrogeno" />
+                        <field name="fosforo" />
+                        <field name="potasio" />
+                        <field name="calcio" />
+                        <field name="magnesio" />
+                        <field name="azufre" />
+                    </group>
+                    <notebook>
+                        <page name="fabricante" string="Fabricante">
+                            <field name="fabricante" >
+                                <tree editable="bottom">
+                                    <field name="name" />
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
+            </form>
+        </field>
+    </record>
+
+    <!--Vista search para el modelo cc.abonos-->
+    <record id="cc_abonos_view_search" model="ir.ui.view">
+        <field name="name">cc.abonos.view.search</field>
+        <field name="model">cc.abonos</field>
+        <field name="arch" type="xml">
+            <search string="Search Abonos">
+                <field name="name" string="Nombre" filter_domain="['|', ('name', 'ilike', self), ('origen', 'ilike', self)]"/>
+                <field name="origen" string="Origen" filter_domain="['|', ('name', 'ilike', self), ('origen', 'ilike', self)]"/>
+                <field name="tipo" string="Tipo" filter_domain="['|', ('name', 'ilike', self), ('origen', 'ilike', self)]"/>
+            </search>
+        </field>
+    </record>
+
+    <!--Acción para el modelo cc.abonos-->
+    <record id="action_cc_abonos" model="ir.actions.act_window">
+        <field name="name">Abonos</field>
+        <field name="res_model">cc.abonos</field>
+        <field name="view_mode">tree,form,search</field>
+    </record>
+
+</odoo>

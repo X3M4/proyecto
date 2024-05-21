@@ -19,7 +19,7 @@ Long description of module's purpose
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base', 'product'],
+    'depends': ['base', 'product', 'portal'],
 
     # always loaded
     'data': [
@@ -32,6 +32,7 @@ Long description of module's purpose
         'views/cultivos/cultivo_view.xml',
         'views/plagas/plagas.view.xml',
         'views/tratamientos/tratamientos.xml',
+        'views/abonos/abonos_view.xml',
         'views/menus/cuaderno_campo_menus.xml',
         'views/templates.xml',
         

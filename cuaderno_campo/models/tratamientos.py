@@ -3,16 +3,19 @@ from odoo import models, fields, api
 class Tratamientos(models.Model):
     _name = 'cc.tratamientos'
     description = 'Tratamientos'
+    _inherit = ['mail.thread', 'mail.activity.mixin',]
     
     name = fields.Char(
         string='Nombre',
         compute = '_compute_name',
+        tracking=True,
     )
     
     plaga_id = fields.Many2one(
         string='Plaga',
         comodel_name='cc.plagas',
         ondelete='restrict',
+        tracking=True,
     )
     
     tipo = fields.Selection(
@@ -27,11 +30,13 @@ class Tratamientos(models.Model):
             ('7', 'Otros'),
         ],
         default='7',
+        tracking=True,
     )
     
     cultivos_ids = fields.Many2many(
         string='Cultivos',
         comodel_name='cc.cultivos',
+        tracking=True,
     )
     
     
@@ -39,6 +44,7 @@ class Tratamientos(models.Model):
         string='Lineas de Tratamiento',
         comodel_name='cc.lineas.tratamiento',
         inverse_name='tratamiento_id',
+        tracking=True,
     )
     
     #Campos calculados
