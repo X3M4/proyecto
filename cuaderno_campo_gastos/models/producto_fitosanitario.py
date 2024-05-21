@@ -28,7 +28,9 @@ class ProductoFitosanitario(models.Model):
             ('7', 'Otros'),
         ],
         default='7',
-        related='fitosanitario_id.tipo'
+        related='fitosanitario_id.tipo',
+        readonly=False
+
     )
     
     num_registro = fields.Char(

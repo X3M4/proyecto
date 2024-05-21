@@ -8,19 +8,20 @@
         <field name="arch" type="xml">
             <div name="options" position="inside">
                 <span class="d-inline-block">
-                    <field name="es_producto"/>
-                    <label for="es_producto"/>
+                    <field name="es_abono"/>
+                    <label for="es_abono"/>
                 </span>
             </div>
             <notebook position="inside">
-                <page name="producto" string="Registro de producto" invisible="es_producto == False">
+                <page name="abono" string="Registro de abono">
                     <group>
-                        <field name="fitosanitario_id" />
-                        <field name="tipo" />
-                        <field name="estado" decoration-success="estado == '1'" decoration-danger="estado == '2'"/>
-                        <field name="num_registro" />
-                        <field name="formulado" />
-                        <field name="fecha_caducidad" />
+                        <field name="abono_id" />
+                        <field name="nitrogeno" />
+                        <field name="fosforo" />
+                        <field name="potasio" />
+                        <field name="calcio" />
+                        <field name="magnesio" />
+                        <field name="azufre" />
                     </group>
                 </page>
             </notebook>
