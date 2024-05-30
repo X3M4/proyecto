@@ -4,6 +4,7 @@ class Maquinaria(models.Model):
     _name = 'cc.maquinaria'
     _description = 'Maquinaria'
     _inherit = ['mail.thread', 'mail.activity.mixin',]
+    _rec_name = 'nombre'
 
     name = fields.Char(
         string='Nº inscripción',
@@ -11,6 +12,11 @@ class Maquinaria(models.Model):
         help='Número de registro el ROMA',
         required=True,
         tracking=True,
+    )
+    
+    nombre = fields.Char(
+        compute='_compute_name',
+        string='Nombre',
     )
 
     marca = fields.Char(
@@ -74,3 +80,7 @@ class Maquinaria(models.Model):
         tracking=True,
     )
 
+    @api.depends('marca', 'modelo')
+    def _compute_name(self):
+        for record in self:
+            record.nombre = str(record.marca) + ' ' + str(record.modelo)

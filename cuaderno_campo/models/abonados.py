@@ -20,6 +20,11 @@ class Abonos(models.Model):
         ondelete='restrict',
     )
     
+    fecha = fields.Date(
+        string='Fecha',
+        tracking=True,
+    )
+    
     
     cantidad = fields.Integer(
         string='Kg/ha',
