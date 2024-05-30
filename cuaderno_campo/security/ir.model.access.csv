@@ -9,3 +9,4 @@ access_cc_plagas,cc.plagas,model_cc_plagas,base.group_user,1,1,1,1
 access_cc_tratamientos,cc.tratamientos,model_cc_tratamientos,base.group_user,1,1,1,1
 access_cc_lineas_tratamiento,cc.lineas_tratamiento,model_cc_lineas_tratamiento,base.group_user,1,1,1,1
 acccess_cc_abonos,cc.abonos,model_cc_abonos,base.group_user,1,1,1,1
+acces_cc_abonados,cc.abonados,model_cc_abonados,base.group_user,1,1,1,1

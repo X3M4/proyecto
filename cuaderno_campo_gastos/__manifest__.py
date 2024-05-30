@@ -25,6 +25,7 @@
     # always loaded
     'data': [
         'views/producto_fitosanitario.xml',
+        'views/producto_abono.xml'
         
     ],
     # only loaded in demonstration mode

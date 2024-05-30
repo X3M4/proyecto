@@ -11,6 +11,7 @@
                     <group>
                         <field name="name" />
                         <field name="plaga_id"/>
+                        <field name="aplicador_id" />
                         <field name="tipo"/>
                         <field name="cultivos_ids"/>
                     </group>
@@ -21,7 +22,6 @@
                                 <tree editable="bottom">
                                     <field name="producto_ids"/>
                                     <field name="dosis"/>
-                                    <field name="aplicador_ids"/>
                                     <field name="fecha"/>
                                 </tree>
                             </field>
@@ -69,7 +69,7 @@
     <record id="action_cc_tratamientos" model="ir.actions.act_window">
         <field name="name">Tratamientos</field>
         <field name="res_model">cc.tratamientos</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">tree,form,search</field>
     </record>
 
 

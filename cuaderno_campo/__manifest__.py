@@ -33,6 +33,7 @@ Long description of module's purpose
         'views/plagas/plagas.view.xml',
         'views/tratamientos/tratamientos.xml',
         'views/abonos/abonos_view.xml',
+        'views/abonos/abonados_view.xml',
         'views/menus/cuaderno_campo_menus.xml',
         'views/templates.xml',
         

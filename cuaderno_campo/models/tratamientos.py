@@ -47,6 +47,15 @@ class Tratamientos(models.Model):
         tracking=True,
     )
     
+    
+    aplicador_id = fields.Many2one(
+        string='Aplicador',
+        comodel_name='cc.aplicadores',
+    )
+    
+    
+    
+    
     #Campos calculados
     @api.depends('tipo')
     def _compute_name(self):
@@ -56,7 +65,10 @@ class Tratamientos(models.Model):
     
 class LineasTratamiento(models.Model):
     _name = 'cc.lineas.tratamiento'
-    description = 'Lineas de tratamiento'
+    _description = 'Lineas de tratamiento'
+    _inherit = ['mail.thread', 'mail.activity.mixin',]
+    
+    
     
     tratamiento_id = fields.Many2one(
         string='Tratamiento',
@@ -67,6 +79,7 @@ class LineasTratamiento(models.Model):
     producto_ids = fields.Many2one(
         string='Productos',
         comodel_name='product.template',
+        
     )
     
     

@@ -4,22 +4,23 @@ from odoo.exceptions import ValidationError
 
 class Parcelas(models.Model):
     _name = 'cc.parcelas'
+    _rec_name = 'finca'
     _description = 'Parcelas'
     _inherit = ['mail.thread', 'mail.activity.mixin',]
     
-    codigo_provincia = fields.Char(
+    codigo_provincia = fields.Integer(
         string='Código Provincia',
         required=True,
         help='Escriba el código de pronvincia. Ej: 02 para Albacete',
-        size=2,
+        digit = 2,
         tracking=True,
     )
 
-    codigo_municipio = fields.Char(
+    codigo_municipio = fields.Integer(
         string='Código Municipio',
         help='Escriba el código del municipio. Ej: 069 para La Roda',
         required=True,
-        size=3,
+        digit=3,
         tracking=True,
     )
 
@@ -182,6 +183,13 @@ class Parcelas(models.Model):
         for record in self:
             record.num_cultivos = len(record.cultivo)
     #Restricciones
+    @api.constrains('codigo_provincia')
+    def _check_codigo_provincia(self):
+        for record in self:
+            if record.codigo_provincia < 2 or record.codigo_provincia > 52:
+                raise ValidationError('El código de provincia no puede ser menor que 2 ni mayor que 52')
+
+            
     
     @api.constrains('superficie')
     def _check_superficie(self):

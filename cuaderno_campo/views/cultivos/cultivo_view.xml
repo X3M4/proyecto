@@ -9,6 +9,15 @@
             <field name="arch" type="xml">
                 <form string="Cultivos">
                     <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button class="oe_stat_button" name="action_view_abonos" type="object" icon="fa-leaf">
+                                <field string="Abonados" name="numero_abonados" widget="statinfo" />
+                            </button>
+                            <button class="oe_stat_button" name="action_view_tratamientos" type="object" icon="fa-bug">
+                                <field string="Tratamientos" name="numero_tratamientos" widget="statinfo" />
+                            </button>
+                        </div>
+
                         <group>
                             <field name="name"/>
                             <field name="parcela">

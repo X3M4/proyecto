@@ -36,4 +36,7 @@
     <menuitem id="abonos_menu" name="Abonos" parent="cuaderno_campo.gestión_explotación"
         action="cuaderno_campo.action_cc_abonos" />
 
+        <menuitem id="abonados" name="Abonados" parent="cuaderno_campo.menu_cuaderno_campo"
+        action="cuaderno_campo.action_cc_abonados" sequence="20"/>
+
 </odoo>

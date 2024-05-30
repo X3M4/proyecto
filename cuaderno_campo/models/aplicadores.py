@@ -43,16 +43,11 @@ class Aplicadores(models.Model):
         tracking=True,
     )
     
-    tratamiento_id = fields.Many2one(
+    linea_tratamiento_id = fields.Many2one(
         string='Tratamiento',
         comodel_name='cc.tratamientos',
         ondelete='restrict',
         tracking=True,
     )
     
-    linea_tratamiento_id = fields.Many2one(
-        string='Linea de Tratamiento',
-        comodel_name='cc.lineas.tratamiento',
-        ondelete='restrict',
-        tracking=True,
-    )
+    

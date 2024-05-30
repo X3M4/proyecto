@@ -1,19 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-    <record id="product_template_view_form" model="ir.ui.view">
+    <record id="abono_product_template_view_form" model="ir.ui.view">
         <field name="name">product.template.view.form</field>
         <field name="inherit_id" ref="product.product_template_form_view" />
         <field name="model">product.template</field>
         <field name="arch" type="xml">
-            <div name="options" position="inside">
-                <span class="d-inline-block">
-                    <field name="es_abono"/>
-                    <label for="es_abono"/>
-                </span>
-            </div>
+            <xpath expr="//div[@name='options']/span[@class='d-inline-block'][2]" position="after">
+                <div name="options" position="inside">
+                    <span class="d-inline-block">
+                        <field name="es_abono" invisible="es_producto == True"/>
+                        <label for="es_abono" invisible="es_producto == True"/>
+                    </span>
+                </div>
+            </xpath>
             <notebook position="inside">
-                <page name="abono" string="Registro de abono">
+                <page name="abono" string="Registro de abono" invisible="es_abono == False">
                     <group>
                         <field name="abono_id" />
                         <field name="nitrogeno" />

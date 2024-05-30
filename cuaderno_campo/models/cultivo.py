@@ -67,6 +67,20 @@ class Cultivo(models.Model):
         help='Peso de la cosecha estimada en Kg',
         tracking=True,
     )
+    
+    
+    numero_abonados = fields.Integer(
+        string='numero_abonados',
+        compute = '_calculate_number_abononados',
+    )
+    
+    
+    numero_tratamientos = fields.Integer(
+        string='numero_tratamientos',
+        compute = '_calculate_number_tratamientos',
+    )
+    
+    
 
     @api.constrains('superficie_cultivada')
     def _check_superficie_cultivada(self):
@@ -83,7 +97,33 @@ class Cultivo(models.Model):
     @api.onchange('parcela')
     def _onchange_parcela(self):
         self.superficie_disponible = self.parcela.superficie_libre
+    
+    def _calculate_number_abononados(self):
+        abonados_ids = self.env['cc.abonados'].search([('cultivos_ids', '=', self.id)])
+        self.numero_abonados = len(abonados_ids)
+    
+    def _calculate_number_tratamientos(self):
+        tratamientos_ids = self.env['cc.tratamientos'].search([('cultivos_ids', '=', self.id)])
+        self.numero_tratamientos = len(tratamientos_ids)
+    
         
+    def action_view_abonos(self):
+        return {
+            'type': 'ir.actions.act_window',
+            'name': 'Cultivos',
+            'res_model': 'cc.abonados',
+            'view_mode': 'tree,form',
+            'domain': [('cultivos_ids', '=', self.id)],
+        }
+        
+    def action_view_tratamientos(self):
+        return {
+            'type': 'ir.actions.act_window',
+            'name': 'Cultivos',
+            'res_model': 'cc.tratamientos',
+            'view_mode': 'tree,form',
+            'domain': [('cultivos_ids', '=', self.id)],
+        }
     
 
 
